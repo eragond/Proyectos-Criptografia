@@ -32,30 +32,28 @@ tabla = [
 'ZABCDEFGHIJKLMNÑOPQRSTUVWXY',
 ]
 
-def cifrado(llave, mensaje):
-    c = ''
+def mcifrado(llave, mensaje, aplicacion):
+    carmen = ''
     j = 0
     for i in mensaje:
         if(i in alfabeto):
-            c += tabla[alfabeto.index(i)][alfabeto.index(llave[j % len(llave)])]
+            kc = llave[j % len(llave)]
+            carmen += aplicacion(kc, i)
             j += 1 
         else:
-            c+= i
+            carmen += i
 
-    return c
+    return carmen
+
+def cifrado(llave, mensaje):
+    # cif es lo que pasaria si cifraras un solo caracter de la llave y el mensaje
+    cif = lambda kc, mc : tabla[alfabeto.index(kc)][alfabeto.index(mc)]
+    return mcifrado(llave, mensaje, cif)
 
 def descifrado(llave, mensaje):
-    c = ''
-    j = 0
-    for i in mensaje:
-        if(i in alfabeto):
-            inverso = tabla[alfabeto.index(llave[j % len(llave)])].index(i)
-            c += tabla[0][inverso]
-            j += 1 
-        else:
-            c+= i
-
-    return c
+    # cif es lo que pasaria si descifraras un solo caracter de la llave y el mensaje
+    cif = lambda kc, mc : tabla[0][tabla[alfabeto.index(kc)].index(mc)]
+    return mcifrado(llave, mensaje, cif)
 
 
 if __name__ == '__main__':
