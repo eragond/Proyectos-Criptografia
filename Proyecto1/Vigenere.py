@@ -1,7 +1,3 @@
-
-
-alfabeto = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'
-
 tabla = [
 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ',
 'BCDEFGHIJKLMNÑOPQRSTUVWXYZA',
@@ -31,6 +27,8 @@ tabla = [
 'YZABCDEFGHIJKLMNÑOPQRSTUVWX',
 'ZABCDEFGHIJKLMNÑOPQRSTUVWXY',
 ]
+
+alfabeto = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'
 
 def mcifrado(llave, mensaje, aplicacion):
     carmen = ''
