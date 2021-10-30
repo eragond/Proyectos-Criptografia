@@ -53,7 +53,7 @@ for i in range(minklengt, maxklengt):
 print("Posibles tamaños de llave")
 p_ord = sorted(posibles, key=posibles.get, reverse=True)
 for i in p_ord:
-    print(i, posibles[i])
+    print('Tamano ', i, ' Apariciones ', posibles[i])
 
 
 
