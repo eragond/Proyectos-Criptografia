@@ -30,6 +30,7 @@ tabla = [
 
 alfabeto = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'
 
+# Aplica las acciones de cifrado o descifrado a cada letra del mensaje
 def mcifrado(llave, mensaje, aplicacion):
     carmen = ''
     j = 0
@@ -56,9 +57,10 @@ def descifrado(llave, mensaje):
 
 if __name__ == '__main__':
     llave = 'ARRIBA'
-    mensaje = 'HOLA COMPADRE, QUE WAPO SE VE'
-    kk = cifrado(llave, mensaje) 
-    print(kk)
-    kk = descifrado(llave, kk)
-    print(kk)
+    mensaje = 'SI ESTAS LEYENDO ESTO, HAS PERDIDO EL JUEGO'
+    print(mensaje)
+    cifra = cifrado(llave, mensaje) 
+    print(cifra)
+    defra = descifrado(llave, cifra)
+    print(defra)
 
