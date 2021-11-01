@@ -66,7 +66,6 @@ def descifrado(llave, mensaje):
         raise Exception('El mensaje no tiene el tamaño correcto')
     
     inv = inv_mod(m_key)            # Obtenemos la inversa
-    m_key %= len(alfabeto)          # Pasamos la matriz inversa bajo el modulo 27
 
     return multexto(inv, mensaje)
 
