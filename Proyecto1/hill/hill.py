@@ -1,3 +1,4 @@
+# Cruz Torres Francisco Daniel - eragond@ciencias.unam.mx
 import numpy as np
 import math
 

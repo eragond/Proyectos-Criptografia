@@ -1,3 +1,5 @@
+# Cruz Torres Francisco Daniel - eragond@ciencias.unam.mx
+
 tabla = [
 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ',
 'BCDEFGHIJKLMNÑOPQRSTUVWXYZA',
