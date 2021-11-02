@@ -2,11 +2,13 @@
 import numpy as np
 import math
 
-alfabeto = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'
+#alfabeto = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'
+alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 # A partir de una matriz llave y el mensaje en texto transforma multiplica
 # el texto por la matriz
 def multexto(llave, mensaje):
+    print(llave)
     carmen = ''
     dim = len(llave)
     vec = []
@@ -24,7 +26,7 @@ def multexto(llave, mensaje):
 
 # Calcula la matriz inversa modulo n de manera medio tramposa
 def inv_mod(mat):
-    det = int(np.linalg.det(mat))
+    det = int(round(np.linalg.det(mat)))
     inv = np.linalg.inv(mat)    # Obtenemos la inversa comun
     inv *= det                  # La multiplicamos por el determinante para tener la adjunta
     inv = inv * pow(det, -1, len(alfabeto)) # La multiplicamos por el inverso del determinante
@@ -40,13 +42,13 @@ def revisa_key(llave):
     dim = int(math.sqrt(len(llave))) # Dimension de la llave
     m_key = [[] for i in range(dim)] # Matriz de la llave
     for i, k in enumerate(llave):    # Poblamos la matriz con la llave
-        m_key[i % dim].append(alfabeto.index(k))
+        m_key[int(i/dim)].append(alfabeto.index(k))
 
     m_key = np.matrix(m_key)        # Transformamos a una matriz de numpy
     det = np.linalg.det(m_key)      # Determinante de la matriz
 
     # Tiramos excepcion si la matriz no es invertible
-    if(det == 0 or math.gcd(int(det), len(alfabeto)) != 1):
+    if(det == 0 or math.gcd(int(round(det)), len(alfabeto)) != 1):
         raise Exception('La matriz de la llave no es invertible en z27')
 
     return m_key
@@ -73,7 +75,9 @@ def descifrado(llave, mensaje):
 if __name__ == '__main__':
     llave = 'ASFG'
     llave = 'AFBSJDFBJ'
+    llave = 'DDGF'
     mensaje = 'SEÑORASYSEÑORESHEMOSLOGRADOTANTOYNOHEMOSLOGRADONADAEFE'
+    mensaje = 'ELCODIGOGENETICOESELCONJUNTODEREGLASQUEDE'
     print(mensaje)
     cifra = cifrado(llave, mensaje) 
     print(cifra)
